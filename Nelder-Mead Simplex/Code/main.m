@@ -4,9 +4,9 @@ clear all
 %[v_2,fval_2]=fminsearch(@fun,[-0.8,1])
 
 % select different starting point
-[x_1,val_1,flag_1,time_1,object_value_1]=NMS(@fun,[0.6,0.6]);
-[x_2,val_2,flag_2,time_2,object_value_2]=NMS(@fun,[-0.8,1]);
-[x_3,val_3,flag_3,time_3,object_value_3]=NMS(@fun,[0.5,1.7]);
+[v_1,val_1,flag_1,time_1,object_value_1]=NMS(@fun,[0.6,0.6]);
+[v_2,val_2,flag_2,time_2,object_value_2]=NMS(@fun,[-0.8,1]);
+[v_3,val_3,flag_3,time_3,object_value_3]=NMS(@fun,[0.5,1.7]);
 
 % figure the contour image
 [x,y]=meshgrid(-2:.01:2);
@@ -22,7 +22,7 @@ y_2 = object_value_2(2,1:20);
 x_3 = object_value_3(1,1:20);  
 y_3 = object_value_3(2,1:20);
 
-plot(x,y,'-or',x_2,y_2,'-*b',x_3,y_3,'-dk');
+plot(x_1,y_1,'-or',x_2,y_2,'-*b',x_3,y_3,'-dk');
 
 % some customization of this image
 xlabel('x(1)');

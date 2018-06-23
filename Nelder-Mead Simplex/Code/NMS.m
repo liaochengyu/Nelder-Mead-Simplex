@@ -1,7 +1,7 @@
 function [x,fval,flag,time,object_value]=NMS(fun,x0,max_time,eps)
 % realization of Nelder-Mead Simplex
 % max_time:the max number of iteration ,the default value is 10000
-% eps: accuracy, the default value is 1e-5
+% eps: accuracy, the default value is 1e-8
 
 % examine the parameters
 if nargin<2
@@ -13,7 +13,7 @@ if nargin<3
     max_time=10000;
 end
 if nargin<4
-    eps=1e-5;
+    eps=1e-8;
 end
 
 % Initialize  parameters
@@ -43,7 +43,12 @@ p=p(:,index);
 % start iteration
 while max_time
     % breaking condition
-    if max(max(abs(p(:,2:n+1)-p(:,1:n)))) <eps
+    %if max(max(abs(p(:,2:n+1)-p(:,1:n)))) <eps
+        %break
+    %end
+    mean=(value(1)+value(n)+value(n+1))/3;
+    indicator=sqrt(((value(1)-mean)^2+(value(n)-mean)^2+(value(n+1)-mean)^2)/3);
+    if indicator<eps
         break
     end
     
