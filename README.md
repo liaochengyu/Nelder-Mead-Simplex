@@ -1,5 +1,5 @@
 # Nelder-Mead-Simplex
-Nelder-Mead Simplex Algorithm
+This `readme` come from https://github.com/liaochengyu/gbnmNelder-Mead.
 
 ## What does it do?
 
